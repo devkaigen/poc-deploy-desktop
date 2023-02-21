@@ -8,8 +8,19 @@ pipeline {
     }
 
     stage('Log') {
-      steps {
-        sh 'ls -la'
+      parallel {
+        stage('Log') {
+          steps {
+            sh 'pwd && ls -la'
+          }
+        }
+
+        stage('Python test') {
+          steps {
+            sh 'python3 -m pytest'
+          }
+        }
+
       }
     }
 
