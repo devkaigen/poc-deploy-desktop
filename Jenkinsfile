@@ -11,13 +11,13 @@ pipeline {
       parallel {
         stage('Log') {
           steps {
-            sh 'python calc.py'
+            sh 'ls -la'
           }
         }
 
         stage('Build') {
           steps {
-            sh 'python3 -m pytest'
+            sh 'python calc.py'
           }
         }
 
