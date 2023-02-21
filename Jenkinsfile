@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Checkout Code') {
       steps {
-        git(url: 'https://github.com/devkaigen/poc-deploy-desktop', branch: 'main')
+        git(url: 'https://github.com/devkaigen/poc-deploy-desktop', branch: 'main', credentialsId: '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')
       }
     }
 
