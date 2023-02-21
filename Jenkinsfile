@@ -17,7 +17,7 @@ pipeline {
 
         stage('Build') {
           steps {
-            sh 'python calc.py'
+            sh 'python3 calc.py'
           }
         }
 
@@ -26,7 +26,7 @@ pipeline {
 
     stage('Python Test') {
       steps {
-        sh 'python -m pytest'
+        sh 'python3 -m pytest'
       }
     }
 
