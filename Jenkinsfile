@@ -26,8 +26,8 @@ pipeline {
 
     stage('Build') {
       steps {
-        sh 'python3 setup.py clean build && ls -la'
-        archiveArtifacts 'build/**'
+        sh 'pyinstaller --onefile --noconsole  window.py && ls -la'
+        archiveArtifacts 'dist/window'
       }
     }
 
