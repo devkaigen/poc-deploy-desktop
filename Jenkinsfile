@@ -27,7 +27,7 @@ pipeline {
     stage('Build') {
       steps {
         sh 'python3 setup.py clean build && ls -la'
-        archiveArtifacts 'build/*'
+        archiveArtifacts 'build/exe.linux-x86_64-3.9'
       }
     }
 
