@@ -1,12 +1,10 @@
 import sys
 from cx_Freeze import setup, Executable
 
-pyhtondll_path = "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.10_3.10.2800.0_x64__qbz5n2kfra8p0"
-
 # Dependencies are automatically detected, but it might need fine tuning.
 build_exe_options = {
     "packages": ["tkinter"],
-    "include_files": ["calc.py", "window.py", r"C:\\Program Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.10_3.10.2800.0_x64__qbz5n2kfra8p0\\python310.dll"],
+    "include_files": ["calc.py", "window.py", r"/usr/bin/python"],
     'include_msvcr': True
 }
 
