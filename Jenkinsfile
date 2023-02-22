@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Checkout Code') {
       steps {
-        git(url: 'https://github.com/devkaigen/poc-deploy-desktop.git', branch: 'main')
+        git(url: 'https://github.com/devkaigen/poc-deploy-desktop.git', branch: 'ER-19-Executable-test')
       }
     }
 
