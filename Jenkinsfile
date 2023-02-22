@@ -27,7 +27,6 @@ pipeline {
     stage('Build') {
       steps {
         sh 'python3 setup.py clean build && ls -la'
-        archiveArtifacts 'build/'
       }
     }
 
