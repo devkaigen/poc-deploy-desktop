@@ -26,7 +26,7 @@ pipeline {
 
     stage('Build') {
       steps {
-        sh 'python3 setup.py clean build $$ ls -la'
+        sh 'python setup.py clean build $$ ls -la'
       }
     }
 
