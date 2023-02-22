@@ -1,33 +1,38 @@
-import unittest
-import calc
+from calc import Calc
+import pytest
 
 
-class TestCalc(unittest.TestCase):
-
-    def test_add(self):
-        self.assertEqual(calc.add(10, 5), 15)
-        self.assertEqual(calc.add(-1, 1), 0)
-        self.assertEqual(calc.add(-1, -1), -2)
-
-    def test_subtract(self):
-        self.assertEqual(calc.subtract(10, 5), 5)
-        self.assertEqual(calc.subtract(-1, 1), -2)
-        self.assertEqual(calc.subtract(-1, -1), 0)
-
-    def test_multiply(self):
-        self.assertEqual(calc.multiply(10, 5), 50)
-        self.assertEqual(calc.multiply(-1, 1), -1)
-        self.assertEqual(calc.multiply(-1, -1), 1)
-
-    def test_divide(self):
-        self.assertEqual(calc.divide(10, 5), 2)
-        self.assertEqual(calc.divide(-1, 1), -1)
-        self.assertEqual(calc.divide(-1, -1), 1)
-        self.assertEqual(calc.divide(5, 2), 2.5)
-
-        with self.assertRaises(ValueError):
-            calc.divide(10, 0)
+@pytest.fixture
+def calc():
+    # all setup for calc here
+    return Calc()
 
 
-if __name__ == '__main__':
-    unittest.main()
+def test_add(calc):
+    assert calc.add(10, 5) == 15
+    assert calc.add(-1, 1) == 0
+    assert calc.add(-1, -1) == -2
+
+
+def test_subtract(calc):
+    assert calc.subtract(10, 5) == 5
+    assert calc.subtract(-1, 1) == -2
+    assert calc.subtract(-1, -1) == 0
+
+
+def test_multiply(calc):
+    assert calc.multiply(10, 5) == 50
+    assert calc.multiply(-1, 1) == -1
+    assert calc.multiply(-1, -1) == 1
+
+
+def test_dived(calc):
+    assert calc.divide(10, 5) == 2
+    assert calc.divide(-1, 1) == -1
+    assert calc.divide(-1, -1) == 1
+    assert calc.divide(5, 2) == 2.5
+
+    with pytest.raises(ValueError) as exc_info:
+        calc.divide(10, 0)
+
+    assert str(exc_info.value) == 'Can not divide by zero!'
