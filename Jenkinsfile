@@ -27,7 +27,7 @@ pipeline {
     stage('Build') {
       steps {
         sh 'pyinstaller --clean --onefile --noconsole  window.py && ls -la'
-        archiveArtifacts 'window'
+        archiveArtifacts 'dist/window'
       }
     }
 
