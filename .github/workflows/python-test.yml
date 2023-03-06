@@ -6,7 +6,7 @@ name: Python test
 on:
   push:
   pull_request:
-    branches: [ "main", "dev", "*"]
+    branches: ["*"]
 
 permissions:
   contents: read
@@ -31,10 +31,10 @@ jobs:
       run: |
         pytest
     - name: Build executable
-      run: pyinstaller --onefile myapp.py
+      run: pyinstaller --onefile window.py
 
     - name: Upload artifact
       uses: actions/upload-artifact@v2
       with:
         name: myapp
-        path: dist/myapp
+        path: dist/window
