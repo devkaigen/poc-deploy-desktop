@@ -54,8 +54,8 @@ jobs:
         with:
           name: window
           path: dist/window.exe
-
-       - name: Update README
+    
+      - name: Update README
         uses: jakejarvis/matrix-gh-actions@master
         with:
           files: README.md
