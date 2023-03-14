@@ -54,4 +54,12 @@ jobs:
         with:
           name: window
           path: dist/window.exe
+
+       - name: Update README
+        uses: jakejarvis/matrix-gh-actions@master
+        with:
+          files: README.md
+          script: |
+            download_url="https://github.com/${{ github.repository }}/releases/latest/download/window.exe"
+            sed -i -e "s|DOWNLOAD_URL|${download_url}|g" README.md
     
